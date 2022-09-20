@@ -1,0 +1,54 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <PackageVersion>0.0.1</PackageVersion>
+    <PackageId>pi-top.Camera.DotNet.Interactive</PackageId>
+    <IsPackable>true</IsPackable>
+    <PackageDescription>pi-top[4] Camera module.</PackageDescription>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageIcon>pi-top_logo.jpg</PackageIcon>
+    <PackageTags>pi-top[4]</PackageTags>
+    <RepositoryUrl>https://github.com/pi-top/pi-top-4-.NET-SDK</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/pi-top/pi-top-4-.NET-SDK</PackageProjectUrl>
+    <Company>pi-top</Company>
+    <Authors>pi-top</Authors>
+    <Product>pi-top[4]</Product>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>.\PiTop.Camera.InteractiveExtension.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>.\PiTop.Camera.InteractiveExtension.xml</DocumentationFile>
+  </PropertyGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Image-Sharp.InteractiveExtension" Version="1.0.44" />
+    <PackageReference Include="OpenCvSharp4.InteractiveExtension" Version="1.0.44" />
+    <PackageReference Include="microsoft.dotnet.interactive" Version="1.0.0-beta.22103.1" />
+    <PackageReference Include="microsoft.dotnet.interactive.formatting" Version="1.0.0-beta.22103.1" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <ProjectReference Include="..\PiTop.Camera\PiTop.Camera.csproj" />
+    <ProjectReference Include="..\PiTop\PiTop.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="$(OutputPath)/PiTop.Camera.InteractiveExtension.dll" Pack="true" PackagePath="interactive-extensions/dotnet" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\pi-top_logo.jpg">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>

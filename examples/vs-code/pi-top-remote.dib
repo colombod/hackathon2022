@@ -1,0 +1,159 @@
+#!markdown
+
+# Remote execution on piTop
+## Use the ```#!connect``` command to connect to .NET interactive running on your piTop
+
+#!csharp
+
+#!connect signalr --kernel-name pi-top --hub-url http://YOUR_ENDPOINT/kernelhub 
+
+#!markdown
+
+## Add a local nuget source and load the piTop packages
+
+#!csharp
+
+#!pi-top
+#i "nuget:/home/pi/localNuget"
+
+#!csharp
+
+#!pi-top
+#r "nuget:pi-top"
+#r "nuget:pi-top.FoundationKit"
+
+#!csharp
+
+#!pi-top
+using PiTop;
+using PiTop.MakerArchitecture.Foundation;
+using PiTop.MakerArchitecture.Foundation.Components;
+using PiTop.MakerArchitecture.Foundation.Sensors;
+using SixLabors.ImageSharp;
+
+#!markdown
+
+Create a module and use it to create an instance of ```FoundationPlate```
+
+#!csharp
+
+#!pi-top
+var board = PiTop4Board.Instance;
+var plate = board.GetOrCreatePlate<FoundationPlate>();
+
+#!markdown
+
+Create Leds and turn them off
+
+#!csharp
+
+#!pi-top
+var greenLed = plate.GetOrCreateLed(DigitalPort.D0, Color.Green);
+var amberLed = plate.GetOrCreateLed(DigitalPort.D1, Color.Yellow);
+var redLed   = plate.GetOrCreateLed(DigitalPort.D2, Color.Red);
+
+greenLed.Off();
+amberLed.Off();
+redLed.Off();
+
+#!markdown
+
+Display the plate to check the wiring
+
+#!csharp
+
+#!pi-top
+plate
+
+#!csharp
+
+#!pi-top
+greenLed.On()
+
+#!markdown
+
+Let's add a ```Potentiometer``` and an ```Ultrasound``` sensor. Note that the ```Ultrasound.Distance``` is not just a number, but a Lentgh type and it is measured in cm. This is because the sensor measures distances and we use the [UnitsNet](https://github.com/angularsen/UnitsNet)
+
+#!csharp
+
+#!pi-top
+var ultraSound = plate.GetOrCreateUltrasonicSensor(DigitalPort.D3);
+var pot = plate.GetOrCreatePotentiometer(AnaloguePort.A0);
+
+display(ultraSound);
+display(pot);
+
+#!csharp
+
+#!pi-top
+ultraSound.Distance.ToString()
+
+#!csharp
+
+#!pi-top
+var distances = new List<double>(){0};
+
+void ScanForDanger(System.Threading.CancellationToken cancellationToken){
+    greenLed.Off();
+    amberLed.Off();
+    redLed.Off();
+    Task.Run(async () => {
+        while (!cancellationToken.IsCancellationRequested){
+            var distance = ultraSound.Distance;
+            greenLed.On();
+            if(distance > UnitsNet.Length.FromCentimeters(20)){
+                amberLed.Off();
+                redLed.Off();
+            }
+
+            if(distance < UnitsNet.Length.FromCentimeters(15)){
+                amberLed.On();
+                redLed.Off();
+            }
+
+            if(distance < UnitsNet.Length.FromCentimeters(10)){            
+                redLed.On();
+            }
+            await Task.Delay(500, cancellationToken);
+        }
+        greenLed.Off();
+        amberLed.Off();
+        redLed.Off();
+    });
+}
+
+
+async Task readDistance(int count = 10){   
+    for (var i = 0; i < count; i++){        
+        if(distances.Count > 5){
+            distances.RemoveAt(0);
+        }
+        var distance = ultraSound.Distance;
+        distances.Add(distance.Value);
+        await Task.Delay(500);
+    }
+}
+
+#!csharp
+
+#!pi-top
+await readDistance(5);
+
+distances
+
+#!csharp
+
+#!pi-top
+var source = new System.Threading.CancellationTokenSource();
+ScanForDanger(source.Token);
+
+#!csharp
+
+#!piTop
+source?.Cancel();
+source?.Dispose();
+source = null;
+
+greenLed.Off();
+amberLed.Off();
+redLed.Off();
