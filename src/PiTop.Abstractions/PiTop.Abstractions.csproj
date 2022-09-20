@@ -29,10 +29,10 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="SixLabors.ImageSharp.Drawing" Version="1.0.0-beta14" />
+    <PackageReference Include="SixLabors.ImageSharp.Drawing" Version="1.0.0-beta15" />
     <PackageReference Include="System.Device.Gpio" Version="2.1.0" />
     <PackageReference Include="System.Reactive" Version="5.0.0" />
-    <PackageReference Include="UnitsNet" Version="4.125.0" />
+    <PackageReference Include="UnitsNet" Version="4.145.0" />
   </ItemGroup>
 
   <ItemGroup>

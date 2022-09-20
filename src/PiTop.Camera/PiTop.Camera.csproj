@@ -29,12 +29,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="OpenCvSharp4" Version="4.5.5.20211231" />
+    <PackageReference Include="OpenCvSharp4" Version="4.6.0.20220608" />
     <PackageReference Include="PocketLogger" Version="0.4.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="SixLabors.ImageSharp.Drawing" Version="1.0.0-beta14" />
+    <PackageReference Include="SixLabors.ImageSharp.Drawing" Version="1.0.0-beta15" />
   </ItemGroup>
 
   <ItemGroup>

@@ -28,10 +28,10 @@
 
 
   <ItemGroup>
-    <PackageReference Include="Image-Sharp.InteractiveExtension" Version="1.0.44" />
-    <PackageReference Include="OpenCvSharp4.InteractiveExtension" Version="1.0.44" />
-    <PackageReference Include="microsoft.dotnet.interactive" Version="1.0.0-beta.22103.1" />
-    <PackageReference Include="microsoft.dotnet.interactive.formatting" Version="1.0.0-beta.22103.1" />
+    <PackageReference Include="Image-Sharp.InteractiveExtension" Version="1.0.60" />
+    <PackageReference Include="OpenCvSharp4.InteractiveExtension" Version="1.0.60" />
+    <PackageReference Include="microsoft.dotnet.interactive" Version="1.0.0-beta.22452.2" />
+    <PackageReference Include="microsoft.dotnet.interactive.formatting" Version="1.0.0-beta.22452.2" />
   </ItemGroup>
 
 
