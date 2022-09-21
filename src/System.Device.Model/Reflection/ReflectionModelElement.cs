@@ -6,9 +6,9 @@
         {
             Type = type;
 
-            if (attribute != null)
+            if (attribute?.DisplayName != null)
             {
-                Attributes[CommonAttributes.DisplayName] = attribute.DisplayName ?? type.Name;
+                this.SetDisplayName(attribute.DisplayName);
             }
         }
 

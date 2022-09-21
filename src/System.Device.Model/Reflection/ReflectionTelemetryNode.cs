@@ -95,7 +95,10 @@ namespace System.Device.Model.Reflection
             }
 
             Type = NodeType.FromType(TelemetryType);
-            Attributes[CommonAttributes.DisplayName] = attribute.DisplayName ?? Name;
+            if (attribute?.DisplayName != null)
+            {
+                this.SetDisplayName(attribute.DisplayName);
+            }
         }
 
         /// <summary>

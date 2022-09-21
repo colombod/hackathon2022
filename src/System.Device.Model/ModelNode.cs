@@ -7,10 +7,5 @@ namespace System.Device.Model
     {
         // attributes are node specific therefore setter doesn't seem to make sense
         public virtual Dictionary<string, string> Attributes { get; } = new Dictionary<string, string>();
-
-        public static class CommonAttributes
-        {
-            public const string DisplayName = "DisplayName";
-        }
     }
 }
