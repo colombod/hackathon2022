@@ -51,6 +51,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExpansionPlateConsole", "..
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "System.Device.Model", "System.Device.Model\System.Device.Model.csproj", "{7EA6F45E-37B0-49E0-90C6-30DA66CF40C4}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "System.Device.Model.Tests", "System.Device.Model.Tests\System.Device.Model.Tests.csproj", "{9EFDA463-6C8A-4A58-A626-D8148B087887}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -137,6 +139,10 @@ Global
 		{7EA6F45E-37B0-49E0-90C6-30DA66CF40C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7EA6F45E-37B0-49E0-90C6-30DA66CF40C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7EA6F45E-37B0-49E0-90C6-30DA66CF40C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9EFDA463-6C8A-4A58-A626-D8148B087887}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9EFDA463-6C8A-4A58-A626-D8148B087887}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9EFDA463-6C8A-4A58-A626-D8148B087887}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9EFDA463-6C8A-4A58-A626-D8148B087887}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -162,6 +168,7 @@ Global
 		{BD91A117-8912-4BA0-BCF2-F4F4C45B5907} = {246885B4-382F-47A8-8F4F-BD41C7ED16CF}
 		{0EC90E05-B96F-4F4A-AF0D-6788549AF6FE} = {BA32B13F-089D-4F91-9E52-083B4BF69E12}
 		{7EA6F45E-37B0-49E0-90C6-30DA66CF40C4} = {503E04AD-13D4-41FE-A5FD-CA2AB3B2623D}
+		{9EFDA463-6C8A-4A58-A626-D8148B087887} = {246885B4-382F-47A8-8F4F-BD41C7ED16CF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {98E1ADF8-88DF-4B1F-B486-650F4F9CC573}
