@@ -69,7 +69,7 @@ public static class PiTop4BoardModelExtensions
         {
             if (resolver.TryResolve(connectedDevice.GetType(), out var deviceModel))
             {
-                model.Elements.Add(GetSafeUniqueName(deviceModel.Type.Name), deviceModel);
+                model.Elements.Add(connectedDevice.Name ?? GetSafeUniqueName(deviceModel.Type.Name), deviceModel);
             }
         }
 

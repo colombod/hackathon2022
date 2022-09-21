@@ -51,6 +51,11 @@
             Custom properties to use at display time.
             </summary>
         </member>
+        <member name="P:PiTop.PlateConnectedDevice.Name">
+            <summary>
+            The Device Name
+            </summary>
+        </member>
         <member name="M:PiTop.PlateConnectedDevice.Connect(PiTop.PlatePort)">
             <summary>
             Establishes a connection on the provided port.
