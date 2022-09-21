@@ -10,12 +10,25 @@ namespace Iot.Device.Model.Reflection
 
         public ReflectionModelResolver() { }
 
+        public bool TryResolve(Type type, out ReflectionModelElement? model)
+        {
+            var attr = type.GetCustomAttribute<InterfaceAttribute>();
+            if (attr is {})
+            {
+                model = Resolve(type);
+                return true;
+            }
+
+            model = null;
+            return false;
+        }
+
         public ReflectionModelElement Resolve(Type type)
         {
             if (_references.TryGetValue(type, out ReflectionModelElement? model))
                 return model;
 
-            InterfaceAttribute? attr = type.GetCustomAttribute<InterfaceAttribute>();
+            var attr = type.GetCustomAttribute<InterfaceAttribute>();
 
             if (attr == null)
                 throw new ArgumentException($"Type `{type.FullName}` must have {nameof(InterfaceAttribute)}");

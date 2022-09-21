@@ -1,10 +1,13 @@
-﻿using UnitsNet;
+﻿using Iot.Device.Model;
 
-namespace PiTop.MakerArchitecture.Foundation.Sensors
+using UnitsNet;
+
+namespace PiTop.MakerArchitecture.Foundation.Sensors;
+
+[Interface("UltrasonicSensor")]
+public abstract class UltrasonicSensor : PlateConnectedDevice
 {
-    public abstract class UltrasonicSensor : PlateConnectedDevice
-    {
-        public Length Distance => GetDistance();
-        protected abstract Length GetDistance();
-    }
+    [Iot.Device.Model.Telemetry]
+    public Length Distance => GetDistance();
+    protected abstract Length GetDistance();
 }

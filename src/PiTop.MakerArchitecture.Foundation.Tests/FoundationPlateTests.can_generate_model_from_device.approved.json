@@ -1,0 +1,48 @@
+{
+  "Elements": {
+    "FoundationPlate0": {
+      "Elements": {
+        "SoundSensor0": {
+          "Elements": {},
+          "Telemetries": {
+            "Level": {
+              "Type": null,
+              "Attributes": {
+                "__C#CodeGen_DataCollector": "{memberPath}"
+              }
+            }
+          },
+          "Properties": {},
+          "Commands": {},
+          "Attributes": {
+            "DisplayName": "SoundSensor"
+          }
+        },
+        "SoundSensor1": {
+          "Elements": {},
+          "Telemetries": {
+            "Level": {
+              "Type": null,
+              "Attributes": {
+                "__C#CodeGen_DataCollector": "{memberPath}"
+              }
+            }
+          },
+          "Properties": {},
+          "Commands": {},
+          "Attributes": {
+            "DisplayName": "SoundSensor"
+          }
+        }
+      },
+      "Telemetries": {},
+      "Properties": {},
+      "Commands": {},
+      "Attributes": {}
+    }
+  },
+  "Telemetries": {},
+  "Properties": {},
+  "Commands": {},
+  "Attributes": {}
+}

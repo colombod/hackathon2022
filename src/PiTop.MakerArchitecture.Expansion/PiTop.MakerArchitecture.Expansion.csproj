@@ -35,6 +35,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Iot.Device.Model\Iot.Device.Model.csproj" />
     <ProjectReference Include="..\PiTop.MakerArchitecture.Foundation\PiTop.MakerArchitecture.Foundation.csproj" />
   </ItemGroup>
 

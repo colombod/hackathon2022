@@ -37,6 +37,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Iot.Device.Model\Iot.Device.Model.csproj" />
     <ProjectReference Include="..\PiTop.Abstractions\PiTop.Abstractions.csproj" />
     <ProjectReference Include="..\PiTop.Algorithms\PiTop.Algorithms.csproj" />
     <ProjectReference Include="..\PiTop.Display\PiTop.Display.csproj" />

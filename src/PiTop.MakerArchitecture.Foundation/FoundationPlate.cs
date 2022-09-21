@@ -1,14 +1,12 @@
-﻿namespace PiTop.MakerArchitecture.Foundation
+﻿namespace PiTop.MakerArchitecture.Foundation;
+
+public class FoundationPlate : PiTopPlate
 {
-    public class FoundationPlate : PiTopPlate
-    {
        
+    public FoundationPlate(PiTop4Board module) : base(module)
+    {
+        RegisterPorts<DigitalPort>();
+        RegisterPorts<AnaloguePort>();
 
-        public FoundationPlate(PiTop4Board module) : base(module)
-        {
-            RegisterPorts<DigitalPort>();
-            RegisterPorts<AnaloguePort>();
-
-        }
     }
 }
