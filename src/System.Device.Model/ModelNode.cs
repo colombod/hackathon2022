@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace System.Device.Model
+﻿namespace System.Device.Model
 {
     // Do we need/want a base class?
     public abstract class ModelNode
