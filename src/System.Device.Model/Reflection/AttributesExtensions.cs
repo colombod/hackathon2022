@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-
-#nullable enable
+﻿using System.Diagnostics.CodeAnalysis;
 
 namespace System.Device.Model.Reflection
 {

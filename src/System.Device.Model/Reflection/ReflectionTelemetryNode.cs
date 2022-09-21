@@ -1,8 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 
-#nullable enable
-
 namespace System.Device.Model.Reflection
 {
     public sealed class ReflectionTelemetryNode : TelemetryNode

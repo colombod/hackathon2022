@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Data;
-
-namespace System.Device.Model.Reflection
+﻿namespace System.Device.Model.Reflection
 {
     internal static class CodeGenAttributes
     {

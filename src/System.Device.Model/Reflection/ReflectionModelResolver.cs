@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Device.Model;
-using System.Device.Model.Reflection;
-using System.Reflection;
-using System.Xml.Linq;
+﻿using System.Reflection;
 
-namespace Iot.Dtdl.Generator.System.Device.Model.Reflection
+namespace System.Device.Model.Reflection
 {
     public class ReflectionModelResolver
     {

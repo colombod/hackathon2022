@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-
-#nullable enable
-
-namespace System.Device.Model.Reflection
+﻿namespace System.Device.Model.Reflection
 {
     public class ReflectionModelElement : ModelElement
     {
