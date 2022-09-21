@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\System.Device.Model\System.Device.Model.csproj" />
+    <ProjectReference Include="..\Iot.Device.Model\Iot.Device.Model.csproj" />
   </ItemGroup>
 
 </Project>

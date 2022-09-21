@@ -1,4 +1,4 @@
-﻿namespace System.Device.Model
+﻿namespace Iot.Device.Model
 {
     public abstract class PropertyNode : ModelNode
     {

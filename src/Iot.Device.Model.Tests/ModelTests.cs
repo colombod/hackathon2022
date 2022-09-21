@@ -1,7 +1,7 @@
-﻿using System.Device.Model.Reflection;
+﻿using Iot.Device.Model.Reflection;
 using Xunit;
 
-namespace System.Device.Model.Tests
+namespace Iot.Device.Model.Tests
 {
     public class ModelTests
     {

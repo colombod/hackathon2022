@@ -49,9 +49,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Samples", "Samples", "{BA32
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExpansionPlateConsole", "..\examples\ExpansionPlateConsole\ExpansionPlateConsole.csproj", "{0EC90E05-B96F-4F4A-AF0D-6788549AF6FE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "System.Device.Model", "System.Device.Model\System.Device.Model.csproj", "{7EA6F45E-37B0-49E0-90C6-30DA66CF40C4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Iot.Device.Model", "Iot.Device.Model\Iot.Device.Model.csproj", "{7EA6F45E-37B0-49E0-90C6-30DA66CF40C4}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "System.Device.Model.Tests", "System.Device.Model.Tests\System.Device.Model.Tests.csproj", "{9EFDA463-6C8A-4A58-A626-D8148B087887}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Iot.Device.Model.Tests", "Iot.Device.Model.Tests\Iot.Device.Model.Tests.csproj", "{9EFDA463-6C8A-4A58-A626-D8148B087887}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace System.Device.Model.Reflection
+namespace Iot.Device.Model.Reflection
 {
     public sealed class ReflectionModelElementReference : ReflectionModelElement
     {

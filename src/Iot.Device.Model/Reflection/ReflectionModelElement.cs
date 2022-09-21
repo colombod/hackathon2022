@@ -1,4 +1,4 @@
-﻿namespace System.Device.Model.Reflection
+﻿namespace Iot.Device.Model.Reflection
 {
     public class ReflectionModelElement : ModelElement
     {

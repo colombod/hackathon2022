@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 
-namespace System.Device.Model
+namespace Iot.Device.Model
 {
     public static class AttributesExtensions
     {

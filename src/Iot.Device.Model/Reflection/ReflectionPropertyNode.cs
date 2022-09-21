@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
 
-namespace System.Device.Model.Reflection
+namespace Iot.Device.Model.Reflection
 {
     public class ReflectionPropertyNode : PropertyNode
     {
