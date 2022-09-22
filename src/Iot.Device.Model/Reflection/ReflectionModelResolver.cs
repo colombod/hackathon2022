@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Diagnostics.CodeAnalysis;
 
 #if USE_IOT_DEVICE_BINDINGS
 using System.Device.Model;
@@ -16,28 +17,17 @@ namespace Iot.Device.Model.Reflection
 
         public ReflectionModelResolver() { }
 
-        public bool TryResolve(Type type, out ReflectionModelElement? model)
+        public bool TryResolve(Type type, [NotNullWhen(true)] out ReflectionModelElement? model)
         {
-            var attr = type.GetCustomAttribute<InterfaceAttribute>();
-            if (attr is {})
+            if (_references.TryGetValue(type, out model))
             {
-                model = Resolve(type);
                 return true;
             }
-
-            model = null;
-            return false;
-        }
-
-        public ReflectionModelElement Resolve(Type type)
-        {
-            if (_references.TryGetValue(type, out ReflectionModelElement? model))
-                return model;
 
             var attr = type.GetCustomAttribute<InterfaceAttribute>();
 
             if (attr == null)
-                throw new ArgumentException($"Type `{type.FullName}` must have {nameof(InterfaceAttribute)}");
+                return false;
 
             // TODO: duplicates between properties/telemetries/elements
             ReflectionModelElement reflectionElement = new(type, attr);
@@ -125,7 +115,20 @@ namespace Iot.Device.Model.Reflection
                 // TODO: commands
             }
 
-            return reflectionElement;
+            model = reflectionElement;
+            return true;
+        }
+
+        public ReflectionModelElement Resolve(Type type)
+        {
+            if (TryResolve(type, out ReflectionModelElement? reflectionModelElement))
+            {
+                return reflectionModelElement;
+            }
+            else
+            {
+                throw new ArgumentException($"Type `{type.FullName}` must have {nameof(InterfaceAttribute)}");
+            }
         }
     }
 }

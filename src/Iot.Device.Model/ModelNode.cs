@@ -1,4 +1,6 @@
-﻿namespace Iot.Device.Model
+﻿using System.Collections.Generic;
+
+namespace Iot.Device.Model
 {
     // Do we need/want a base class?
     public abstract class ModelNode
