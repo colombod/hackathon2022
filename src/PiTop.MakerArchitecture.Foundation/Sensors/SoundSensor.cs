@@ -12,15 +12,14 @@ public class SoundSensor : PlateConnectedDevice
     private AnalogueDigitalConverter _adc;
 
 
-    public SoundSensor( bool normalizeValue = true) 
+    public SoundSensor(bool normalizeValue = true) 
     {
         _normalizeValue = normalizeValue;
-          
     }
 
     public double Value => ReadValue(_normalizeValue);
 
-    [Iot.Device.Model.Telemetry]
+    [Telemetry]
     public Level Level
     {
         get
@@ -52,6 +51,5 @@ public class SoundSensor : PlateConnectedDevice
         {
             throw new InvalidOperationException($"Port {Port.Name} as no pin pair.");
         }
-            
     }
 }
