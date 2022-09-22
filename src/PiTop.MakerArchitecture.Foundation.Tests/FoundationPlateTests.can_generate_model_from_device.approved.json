@@ -2,7 +2,7 @@
   "Elements": {
     "FoundationPlate0": {
       "Elements": {
-        "SoundSensor0": {
+        "Left": {
           "Elements": {},
           "Telemetries": {
             "Level": {
@@ -18,7 +18,7 @@
             "DisplayName": "SoundSensor"
           }
         },
-        "SoundSensor1": {
+        "Right": {
           "Elements": {},
           "Telemetries": {
             "Level": {

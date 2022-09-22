@@ -81,8 +81,8 @@ public class FoundationPlateTests : IDisposable
     {
         using var plate = _module.GetOrCreatePlate<FoundationPlate>();
 
-        plate.GetOrCreateSoundSensor(AnaloguePort.A0);
-        plate.GetOrCreateSoundSensor(AnaloguePort.A1);
+        plate.GetOrCreateSoundSensor(AnaloguePort.A0, "Left");
+        plate.GetOrCreateSoundSensor(AnaloguePort.A1,"Right");
 
         var model = _module.GenerateModel();
         var modelDocument = System.Text.Json.JsonSerializer.Serialize(model, new System.Text.Json.JsonSerializerOptions

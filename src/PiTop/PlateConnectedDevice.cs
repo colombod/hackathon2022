@@ -16,7 +16,12 @@ namespace PiTop
             new List<DisplayPropertyBase>();
 
         private readonly CompositeDisposable _disposables = new();
-
+        
+        /// <summary>
+        /// The Device Name
+        /// </summary>
+        public string? Name { get; set; } = string.Empty;
+        
         /// <summary>
         /// Establishes a connection on the provided port.
         /// </summary>
