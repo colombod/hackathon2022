@@ -1,5 +1,10 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Reflection;
+
+#if USE_IOT_DEVICE_BINDINGS
+using System.Device.Model;
+#endif
 
 namespace Iot.Device.Model.Reflection
 {

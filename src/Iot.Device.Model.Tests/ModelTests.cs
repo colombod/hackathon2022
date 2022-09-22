@@ -1,6 +1,10 @@
 ﻿using Iot.Device.Model.Reflection;
 using Xunit;
 
+#if USE_IOT_DEVICE_BINDINGS
+using System.Device.Model;
+#endif
+
 namespace Iot.Device.Model.Tests
 {
     public class ModelTests
