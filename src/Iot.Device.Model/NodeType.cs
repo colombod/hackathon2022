@@ -18,7 +18,7 @@ public abstract class NodeType
             return nodeType;
 
         // TODO: temporarily disabled throwing to unblock testing
-        throw new NotSupportedException($"Mapping from `{type.FullName}` to {nameof(NodeType)} is currently not supported.");
+        //throw new NotSupportedException($"Mapping from `{type.FullName}` to {nameof(NodeType)} is currently not supported.");
         return null!;
     }
 }

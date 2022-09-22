@@ -1,4 +1,10 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Collections.Generic;
+using System.Reflection;
+
+#if USE_IOT_DEVICE_BINDINGS
+using System.Device.Model;
+#endif
 
 namespace Iot.Device.Model.Reflection
 {

@@ -1,4 +1,11 @@
-﻿namespace Iot.Device.Model.Reflection
+﻿using System;
+using System.Collections.Generic;
+
+#if USE_IOT_DEVICE_BINDINGS
+using System.Device.Model;
+#endif
+
+namespace Iot.Device.Model.Reflection
 {
     public class ReflectionModelElement : ModelElement
     {
