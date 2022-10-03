@@ -1,9 +1,8 @@
 ﻿using System.Device.Gpio;
 
-namespace PiTop.Abstractions
+namespace PiTop.Abstractions;
+
+public interface IGpioControllerFactory
 {
-    public interface IGpioControllerFactory
-    {
-        GpioController GetOrCreateController();
-    }
+    GpioController GetOrCreateController();
 }

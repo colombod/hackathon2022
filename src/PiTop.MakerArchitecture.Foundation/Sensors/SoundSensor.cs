@@ -1,7 +1,7 @@
-﻿using Iot.Device.Model;
-
-using System;
+﻿using System;
+using Iot.Device.Model;
 using UnitsNet;
+using UnitsNet.Units;
 
 namespace PiTop.MakerArchitecture.Foundation.Sensors;
 
@@ -12,14 +12,14 @@ public class SoundSensor : PlateConnectedDevice
     private AnalogueDigitalConverter _adc;
 
 
-    public SoundSensor(bool normalizeValue = true) 
+    public SoundSensor(bool normalizeValue = true)
     {
         _normalizeValue = normalizeValue;
     }
 
     public double Value => ReadValue(_normalizeValue);
 
-    [Telemetry]
+    [Telemetry(PreferredUnit = nameof(LevelUnit.Decibel))]
     public Level Level
     {
         get
@@ -32,10 +32,7 @@ public class SoundSensor : PlateConnectedDevice
     private double ReadValue(bool normalize)
     {
         var value = _adc.ReadSample(peakDetection: true);
-        if (normalize)
-        {
-            value /= ushort.MaxValue;
-        }
+        if (normalize) value /= ushort.MaxValue;
         return Math.Round(value);
     }
 

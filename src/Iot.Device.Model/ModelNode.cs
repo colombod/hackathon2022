@@ -1,11 +1,10 @@
 ﻿using System.Collections.Generic;
 
-namespace Iot.Device.Model
+namespace Iot.Device.Model;
+
+// Do we need/want a base class?
+public abstract class ModelNode
 {
-    // Do we need/want a base class?
-    public abstract class ModelNode
-    {
-        // attributes are node specific therefore setter doesn't seem to make sense
-        public virtual Dictionary<string, string> Attributes { get; } = new Dictionary<string, string>();
-    }
+    // attributes are node specific therefore setter doesn't seem to make sense
+    public virtual Dictionary<string, string> Attributes { get; } = new Dictionary<string, string>();
 }

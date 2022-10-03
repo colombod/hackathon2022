@@ -87,10 +87,9 @@ public class FoundationPlateTests : IDisposable
         var model = _module.GenerateModel();
         var modelDocument = System.Text.Json.JsonSerializer.Serialize(model, new System.Text.Json.JsonSerializerOptions
         {
-            WriteIndented = true
+            WriteIndented = true,
         });
         this.Assent(modelDocument, _configuration);
-
     }
 
     public void Dispose()

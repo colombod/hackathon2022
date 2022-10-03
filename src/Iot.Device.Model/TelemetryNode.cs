@@ -1,7 +1,6 @@
-﻿namespace Iot.Device.Model
+﻿namespace Iot.Device.Model;
+
+public abstract class TelemetryNode : ModelNode
 {
-    public abstract class TelemetryNode : ModelNode
-    {
-        public abstract NodeType Type { get; }
-    }
+    public abstract NodeType Type { get; }
 }

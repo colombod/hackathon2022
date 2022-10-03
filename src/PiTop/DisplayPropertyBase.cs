@@ -1,6 +1,5 @@
-﻿namespace PiTop
+﻿namespace PiTop;
+
+public abstract class DisplayPropertyBase
 {
-    public abstract class DisplayPropertyBase
-    {
-    }
 }

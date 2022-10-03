@@ -1,17 +1,16 @@
 ﻿using PiTop.Abstractions;
 using SixLabors.ImageSharp;
 
-namespace PiTop.Camera
+namespace PiTop.Camera;
+
+public interface ICamera :
+    IConnectedDevice,
+    IFrameSource<Image>
 {
-    public interface ICamera :
-        IConnectedDevice,
-        IFrameSource<Image>
-    {
 
-    }
+}
 
-    public interface IFrameSource<out T>
-    {
-        T GetFrame();
-    }
+public interface IFrameSource<out T>
+{
+    T GetFrame();
 }

@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace Iot.Device.Model
+namespace Iot.Device.Model;
+
+public abstract class CommandNode : ModelNode
 {
-    public abstract class CommandNode : ModelNode
-    {
-        public abstract List<(string, NodeType)> Parameters { get; }
-    }
+    public abstract List<(string, NodeType)> Parameters { get; }
 }

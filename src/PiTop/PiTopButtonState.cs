@@ -1,8 +1,7 @@
-﻿namespace PiTop
+﻿namespace PiTop;
+
+public enum PiTopButtonState
 {
-    public enum PiTopButtonState
-    {
-        Released = 0,
-        Pressed
-    }
+    Released = 0,
+    Pressed
 }

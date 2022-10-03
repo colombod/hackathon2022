@@ -5,76 +5,75 @@ using OpenCvSharp;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
 
-namespace PiTop.Camera
+namespace PiTop.Camera;
+
+public class OpenCvCamera :
+    ICamera,
+    IFrameSource<Mat>,
+    IFrameSource<Image<Rgb24>>
+
 {
-    public class OpenCvCamera :
-        ICamera,
-        IFrameSource<Mat>,
-        IFrameSource<Image<Rgb24>>
+    private readonly int _index;
+    private readonly VideoCapture _capture;
 
+    public static int GetCameraCount()
     {
-        private readonly int _index;
-        private readonly VideoCapture _capture;
-
-        public static int GetCameraCount()
+        var cameraCount = 0;
+        var camera = new VideoCapture();
+        while (true)
         {
-            var cameraCount = 0;
-            var camera = new VideoCapture();
-            while (true)
+            if (!camera.Open(cameraCount++))
             {
-                if (!camera.Open(cameraCount++))
-                {
-                    break;
-                }
-
-                camera.Release();
-            }
-            camera.Dispose();
-            return cameraCount;
-        }
-
-        public OpenCvCamera(int index)
-        {
-            _index = index;
-            _capture = new VideoCapture();
-        }
-
-        public Mat GetFrameAsMat()
-        {
-            if (_capture.IsOpened())
-            {
-                var image = new Mat();
-                _capture.Read(image);
-                return image;
+                break;
             }
 
-            throw new InvalidOperationException("Camera not initialized");
+            camera.Release();
+        }
+        camera.Dispose();
+        return cameraCount;
+    }
+
+    public OpenCvCamera(int index)
+    {
+        _index = index;
+        _capture = new VideoCapture();
+    }
+
+    public Mat GetFrameAsMat()
+    {
+        if (_capture.IsOpened())
+        {
+            var image = new Mat();
+            _capture.Read(image);
+            return image;
         }
 
-        public void Dispose()
-        {
-            _capture.Release();
-            _capture.Dispose();
-        }
+        throw new InvalidOperationException("Camera not initialized");
+    }
 
-        public void Connect()
-        {
-            _capture.Open(_index);
-        }
+    public void Dispose()
+    {
+        _capture.Release();
+        _capture.Dispose();
+    }
 
-        Mat IFrameSource<Mat>.GetFrame()
-        {
-            return GetFrameAsMat();
-        }
+    public void Connect()
+    {
+        _capture.Open(_index);
+    }
 
-        public Image GetFrame()
-        {
-            return GetFrameAsMat().ToImage();
-        }
+    Mat IFrameSource<Mat>.GetFrame()
+    {
+        return GetFrameAsMat();
+    }
 
-        Image<Rgb24> IFrameSource<Image<Rgb24>>.GetFrame()
-        {
-            return GetFrameAsMat().ToImage<Rgb24>();
-        }
+    public Image GetFrame()
+    {
+        return GetFrameAsMat().ToImage();
+    }
+
+    Image<Rgb24> IFrameSource<Image<Rgb24>>.GetFrame()
+    {
+        return GetFrameAsMat().ToImage<Rgb24>();
     }
 }

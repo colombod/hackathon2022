@@ -2,26 +2,25 @@
 using SixLabors.ImageSharp.PixelFormats;
 using Xunit;
 
-namespace PiTop.Tests
+namespace PiTop.Tests;
+
+public class DisplayTests
 {
-    public class DisplayTests
+    [Fact]
+    public void can_clear_the_screen()
     {
-        [Fact]
-        public void can_clear_the_screen()
-        {
-            using var display = new HeadlessDisplay(50, 50);
+        using var display = new HeadlessDisplay(50, 50);
 
-            display.Clear(Color.Black);
+        display.Clear(Color.Black);
             
-            var screen = display.Capture().CloneAs<Rgba32>();
+        var screen = display.Capture().CloneAs<Rgba32>();
 
-            screen.ShouldAllPixelBe(Color.Black);
+        screen.ShouldAllPixelBe(Color.Black);
 
-            display.Clear(Color.Aqua);
+        display.Clear(Color.Aqua);
 
-            screen = display.Capture().CloneAs<Rgba32>();
+        screen = display.Capture().CloneAs<Rgba32>();
 
-            screen.ShouldAllPixelBe(Color.Aqua);
-        }
+        screen.ShouldAllPixelBe(Color.Aqua);
     }
 }

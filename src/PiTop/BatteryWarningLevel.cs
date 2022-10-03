@@ -1,8 +1,7 @@
-namespace PiTop
+namespace PiTop;
+
+public enum BatteryWarningLevel
 {
-    public enum BatteryWarningLevel
-    {
-        Low,
-        Critical
-    }
+    Low,
+    Critical
 }

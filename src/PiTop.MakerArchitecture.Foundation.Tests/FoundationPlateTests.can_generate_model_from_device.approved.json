@@ -6,9 +6,10 @@
           "Elements": {},
           "Telemetries": {
             "Level": {
-              "Type": null,
+              "Type": "quantity[level]",
               "Attributes": {
-                "__C#CodeGen_DataCollector": "{memberPath}"
+                "__C#CodeGen_DataCollector": "{memberPath}",
+                "PreferredUnit": "Decibel"
               }
             }
           },
@@ -22,9 +23,10 @@
           "Elements": {},
           "Telemetries": {
             "Level": {
-              "Type": null,
+              "Type": "quantity[level]",
               "Attributes": {
-                "__C#CodeGen_DataCollector": "{memberPath}"
+                "__C#CodeGen_DataCollector": "{memberPath}",
+                "PreferredUnit": "Decibel"
               }
             }
           },

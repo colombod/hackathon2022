@@ -1,9 +1,8 @@
 ﻿using System.Device.I2c;
 
-namespace PiTop.Abstractions
+namespace PiTop.Abstractions;
+
+public interface II2CDeviceFactory
 {
-    public interface II2CDeviceFactory
-    {
-        I2cDevice GetOrCreateI2CDevice(int deviceAddress);
-    }
+    I2cDevice GetOrCreateI2CDevice(int deviceAddress);
 }

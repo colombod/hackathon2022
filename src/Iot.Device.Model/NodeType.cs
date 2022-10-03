@@ -1,13 +1,19 @@
-﻿namespace Iot.Device.Model;
+﻿using System.Reflection;
+using System.Text.Json.Serialization;
+using UnitsNet;
 
+namespace Iot.Device.Model;
+
+[JsonConverter(typeof(NodeTypeJsonConverter))]
 public abstract class NodeType
 {
     private static Dictionary<Type, NodeType> s_simpleTypes = new()
     {
         [typeof(string)] = SimpleNodeType.String,
         [typeof(bool)] = SimpleNodeType.Boolean,
-        [typeof(float)] = SimpleNodeType.Float,
-        [typeof(double)] = SimpleNodeType.Float,
+        [typeof(float)] = SimpleNodeType.Number,
+        [typeof(double)] = SimpleNodeType.Number,
+        [typeof(int)] = SimpleNodeType.Number
     };
 
     public abstract override string ToString();
@@ -16,9 +22,17 @@ public abstract class NodeType
     {
         if (s_simpleTypes.TryGetValue(type, out NodeType? nodeType))
             return nodeType;
+     
 
-        // TODO: temporarily disabled throwing to unblock testing
-        //throw new NotSupportedException($"Mapping from `{type.FullName}` to {nameof(NodeType)} is currently not supported.");
+        if (type.IsAssignableTo(typeof(IQuantity)))
+        {
+            return new QuantityNodeType(type);
+        }
+
+#if USE_IOT_DEVICE_BINDINGS
         return null!;
+#else
+        throw new NotSupportedException($"Mapping from `{type.FullName}` to {nameof(NodeType)} is currently not supported.");
+#endif
     }
 }

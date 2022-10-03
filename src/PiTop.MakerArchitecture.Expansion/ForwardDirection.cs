@@ -1,8 +1,7 @@
-﻿namespace PiTop.MakerArchitecture.Expansion
+﻿namespace PiTop.MakerArchitecture.Expansion;
+
+public enum ForwardDirection
 {
-    public enum ForwardDirection
-    {
-        Clockwise = 1,
-        CounterClockwise = -1
-    }
+    Clockwise = 1,
+    CounterClockwise = -1
 }

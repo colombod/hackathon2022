@@ -1,9 +1,8 @@
 ﻿using System;
 
-namespace PiTop.Abstractions
+namespace PiTop.Abstractions;
+
+public interface IConnectedDevice : IDisposable
 {
-    public interface IConnectedDevice : IDisposable
-    {
-        void Connect();
-    }
+    void Connect();
 }

@@ -1,27 +1,26 @@
 ﻿using System.Drawing.Imaging;
 using PiTop.Abstractions;
 
-namespace PiTop
+namespace PiTop;
+
+public class HeadlessDisplay : Display
 {
-    public class HeadlessDisplay : Display
+    public HeadlessDisplay(int width, int height) : base(width, height)
     {
-        public HeadlessDisplay(int width, int height) : base(width, height)
-        {
-        }
+    }
 
-        public override void Show()
-        {
+    public override void Show()
+    {
             
-        }
+    }
 
-        public override void Hide()
-        {
+    public override void Hide()
+    {
             
-        }
+    }
 
-        protected override void CommitBuffer()
-        {
+    protected override void CommitBuffer()
+    {
             
-        }
     }
 }

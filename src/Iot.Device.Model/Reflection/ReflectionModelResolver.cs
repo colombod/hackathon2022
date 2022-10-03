@@ -52,11 +52,11 @@ namespace Iot.Device.Model.Reflection
 
                 if (ReflectionPropertyNode.TryGetPropertyFromMemberInfo(type, property, out ReflectionPropertyNode? propertyNode))
                 {
-                    if (!reflectionElement.Properties.TryAdd(propertyNode.MemberName, propertyNode))
+                    if (!reflectionElement.Properties.TryAdd(propertyNode.PropertyName, propertyNode))
                     {
                         if (!SkipDuplicateNames)
                         {
-                            throw new ArgumentException($"Property '{propertyNode.MemberName}' already exists.");
+                            throw new ArgumentException($"Property '{propertyNode.PropertyName}' already exists.");
                         }
                     }
 

@@ -3,16 +3,15 @@
 using Microsoft.DotNet.Interactive;
 using Microsoft.DotNet.Interactive.Commands;
 
-namespace PiTop.MakerArchitecture.Expansion.InteractiveExtension
+namespace PiTop.MakerArchitecture.Expansion.InteractiveExtension;
+
+public class KernelExtension : IKernelExtension
 {
-    public class KernelExtension : IKernelExtension
+    public async Task OnLoadAsync(Kernel kernel)
     {
-        public async Task OnLoadAsync(Kernel kernel)
-        {
-            await kernel.SendAsync(
-                new DisplayValue(new FormattedValue(
-                    "text/markdown", 
-                    "Added support for the ExpansionPlate.")));
-        }
+        await kernel.SendAsync(
+            new DisplayValue(new FormattedValue(
+                "text/markdown", 
+                "Added support for the ExpansionPlate.")));
     }
 }

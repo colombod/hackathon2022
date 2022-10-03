@@ -2,13 +2,12 @@
 
 using Microsoft.DotNet.Interactive;
 
-namespace PiTop.MakerArchitecture.Foundation.Psi.InteractiveExtension
+namespace PiTop.MakerArchitecture.Foundation.Psi.InteractiveExtension;
+
+public class KernelExtension : IKernelExtension
 {
-    public class KernelExtension : IKernelExtension
+    public Task OnLoadAsync(Kernel kernel)
     {
-        public Task OnLoadAsync(Kernel kernel)
-        {
-            return Task.CompletedTask;
-        }
+        return Task.CompletedTask;
     }
 }

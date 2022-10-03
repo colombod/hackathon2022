@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-
+using System.Linq;
 using Iot.Device.Model;
 using Iot.Device.Model.Reflection;
 
@@ -63,9 +63,8 @@ public static class PiTop4BoardModelExtensions
                 model.Properties.Add(property.Key, property.Value);
             }
         }
-       
 
-        foreach (var connectedDevice in plate.ConnectedDevices)
+        foreach (var connectedDevice in plate.ConnectedDevices.OrderBy(cd => cd.Name?? string.Empty))
         {
             if (resolver.TryResolve(connectedDevice.GetType(), out var deviceModel))
             {

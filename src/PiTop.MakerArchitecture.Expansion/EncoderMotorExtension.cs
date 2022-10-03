@@ -1,41 +1,40 @@
 ﻿using System;
 using UnitsNet;
 
-namespace PiTop.MakerArchitecture.Expansion
+namespace PiTop.MakerArchitecture.Expansion;
+
+/// <summary>
+/// Extensions for <see cref="EncoderMotor"/>
+/// </summary>
+public static class EncoderMotorExtension
 {
     /// <summary>
-    /// Extensions for <see cref="EncoderMotor"/>
+    /// Sets the motor speed from linear speed and assuming Standard diameter <see cref="WheelDiameters"/>.
     /// </summary>
-    public static class EncoderMotorExtension
+    /// <param name="encoderMotor">The motor instance</param>
+    /// <param name="speed"></param>
+    public static void SetSpeed(this EncoderMotor encoderMotor, Speed speed)
     {
-        /// <summary>
-        /// Sets the motor speed from linear speed and assuming Standard diameter <see cref="WheelDiameters"/>.
-        /// </summary>
-        /// <param name="encoderMotor">The motor instance</param>
-        /// <param name="speed"></param>
-        public static void SetSpeed(this EncoderMotor encoderMotor, Speed speed)
+        encoderMotor.SetSpeed(speed, WheelDiameters.Standard);
+    }
+
+    /// <summary>
+    /// Sets the motor speed from linear speed and wheel diameter.
+    /// </summary>
+    /// <param name="encoderMotor">The motor instance</param>
+    /// <param name="speed">The linear speed.</param>
+    /// <param name="diameter">The wheel diameter.</param>
+    public static void SetSpeed(this EncoderMotor encoderMotor, Speed speed, Length diameter)
+    {
+        if (encoderMotor == null)
         {
-            encoderMotor.SetSpeed(speed, WheelDiameters.Standard);
+            throw new ArgumentNullException(nameof(encoderMotor));
         }
 
-        /// <summary>
-        /// Sets the motor speed from linear speed and wheel diameter.
-        /// </summary>
-        /// <param name="encoderMotor">The motor instance</param>
-        /// <param name="speed">The linear speed.</param>
-        /// <param name="diameter">The wheel diameter.</param>
-        public static void SetSpeed(this EncoderMotor encoderMotor, Speed speed, Length diameter)
+        if (diameter.Meters <= 0)
         {
-            if (encoderMotor == null)
-            {
-                throw new ArgumentNullException(nameof(encoderMotor));
-            }
-
-            if (diameter.Meters <= 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(diameter), "The wheel diameter must be greater than 0");
-            }
-            encoderMotor.Rpm = speed.ToRotationalSpeedFromDiameter(diameter);
+            throw new ArgumentOutOfRangeException(nameof(diameter), "The wheel diameter must be greater than 0");
         }
+        encoderMotor.Rpm = speed.ToRotationalSpeedFromDiameter(diameter);
     }
 }

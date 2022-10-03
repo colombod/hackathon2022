@@ -1,9 +1,8 @@
 ﻿using System.Device.Spi;
 
-namespace PiTop.Abstractions
+namespace PiTop.Abstractions;
+
+public interface ISPiDeviceFactory
 {
-    public interface ISPiDeviceFactory
-    {
-        SpiDevice GetOrCreateSpiDevice(SpiConnectionSettings connectionSettings);
-    }
+    SpiDevice GetOrCreateSpiDevice(SpiConnectionSettings connectionSettings);
 }

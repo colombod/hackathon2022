@@ -1,9 +1,8 @@
 ﻿using System;
 
-namespace PiTop.Algorithms
+namespace PiTop.Algorithms;
+
+public interface IFilter
 {
-    public interface IFilter
-    {
-        double Apply(double value, DateTime? now = null);
-    }
+    double Apply(double value, DateTime? now = null);
 }

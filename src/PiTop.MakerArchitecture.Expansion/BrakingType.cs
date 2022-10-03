@@ -1,8 +1,7 @@
-﻿namespace PiTop.MakerArchitecture.Expansion
+﻿namespace PiTop.MakerArchitecture.Expansion;
+
+public enum BrakingType : byte
 {
-    public enum BrakingType : byte
-    {
-        Coast = 0,
-        Brake = 1
-    }
+    Coast = 0,
+    Brake = 1
 }

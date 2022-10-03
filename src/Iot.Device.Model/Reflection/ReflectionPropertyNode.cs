@@ -16,7 +16,7 @@ namespace Iot.Device.Model.Reflection
 
         public override bool IsWritable => Set != null;
 
-        internal string MemberName { get; }
+        internal string PropertyName { get; }
         public Type PropertyType { get; }
         public MemberInfo MemberInfo { get; }
         public Func<object?, object?>? Get { get; }
@@ -25,13 +25,14 @@ namespace Iot.Device.Model.Reflection
         private ReflectionPropertyNode(PropertyAttribute attribute, MemberInfo memberInfo)
         {
             MemberInfo = memberInfo;
-            MemberName = attribute.Name!;
+            this.SetMemberName(memberInfo.Name);
+            PropertyName = attribute.Name!;
 
             switch (memberInfo)
             {
                 case PropertyInfo propertyInfo:
                     {
-                        MemberName ??= propertyInfo.Name;
+                        PropertyName ??= propertyInfo.Name;
                         PropertyType = propertyInfo.PropertyType;
                         Type = NodeType.FromType(propertyInfo.PropertyType);
                         Get = propertyInfo.GetGetMethod() != null ? propertyInfo.GetValue : null;

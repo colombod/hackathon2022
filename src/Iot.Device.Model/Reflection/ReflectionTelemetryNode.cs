@@ -33,7 +33,7 @@ namespace Iot.Device.Model.Reflection
                         Name ??= propertyInfo.Name;
                         TelemetryType = propertyInfo.PropertyType;
                         Get = propertyInfo.GetValue;
-                        Attributes[CodeGenAttributes.DataCollector] = "{memberPath}";
+                        this.SetValueGetterFormatter("{memberPath}");
                         break;
                     }
                 case MethodInfo methodInfo:
@@ -63,7 +63,7 @@ namespace Iot.Device.Model.Reflection
                                     TelemetryType = methodInfo.ReturnType;
                                     object?[] args = parameters.Length == 0 ? Array.Empty<object>() : Enumerable.Repeat(System.Type.Missing, parameters.Length).ToArray();
                                     Get = (obj) => methodInfo.Invoke(obj, args);
-                                    Attributes[CodeGenAttributes.DataCollector] = "{memberPath}()";
+                                    this.SetValueGetterFormatter("{memberPath}()");
                                     break;
                                 }
                             case 1:
@@ -87,7 +87,7 @@ namespace Iot.Device.Model.Reflection
                                         throw new NotImplementedException();
                                     };
 
-                                    Attributes[CodeGenAttributes.DataCollector] = "{memberPath}(out var measurement) switch { true => measurement, false => throw new System.InvalidOperationException(\"Reading failed.\") }";
+                                    this.SetValueGetterFormatter("{memberPath}(out var measurement) switch { true => measurement, false => throw new System.InvalidOperationException(\"Reading failed.\") }");
                                     break;
                                 }
                             default:
@@ -105,6 +105,15 @@ namespace Iot.Device.Model.Reflection
             {
                 this.SetDisplayName(attribute.DisplayName);
             }
+
+#if !USE_IOT_DEVICE_BINDINGS
+            if (attribute?.PreferredUnit != null)
+            {
+                this.SetPreferredUnit(attribute.PreferredUnit);
+            }
+#endif
+
+            this.SetMemberName(memberInfo.Name);
         }
 
         /// <summary>

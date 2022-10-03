@@ -9,17 +9,16 @@ public class LightSensor : PlateConnectedDevice
     private readonly bool _normalizeValue;
     private AnalogueDigitalConverter _adc;
 
-    public LightSensor( bool normalizeValue = true) 
+    public LightSensor(bool normalizeValue = true)
     {
         _normalizeValue = normalizeValue;
     }
 
-    [Iot.Device.Model.Telemetry("RawLight")]
-    public double Value => ReadValue();
+    [Telemetry(Name = "RawLight")] public double Value => ReadValue();
 
     private double ReadValue()
     {
-        var value = _adc.ReadSample(numberOfSamples: 3);
+        var value = _adc.ReadSample(3);
         return Math.Round(_normalizeValue ? value / 999.0 : value, 2);
     }
 
@@ -35,6 +34,5 @@ public class LightSensor : PlateConnectedDevice
         {
             throw new InvalidOperationException($"Port {Port.Name} as no pin pair.");
         }
-
     }
 }

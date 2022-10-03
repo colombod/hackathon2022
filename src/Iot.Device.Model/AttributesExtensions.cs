@@ -1,15 +1,20 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿namespace Iot.Device.Model;
 
-namespace Iot.Device.Model
+public static class AttributesExtensions
 {
-    public static class AttributesExtensions
-    {
-        private const string DisplayName = "DisplayName";
+    private const string DisplayName = "DisplayName";
 
-        public static void SetDisplayName(this ModelNode node, string displayName)
-            => node.Attributes[DisplayName] = displayName;
+    public static void SetDisplayName(this ModelNode node, string displayName)
+        => node.Attributes[DisplayName] = displayName;
 
-        public static string? GetDisplayName(this ModelNode node)
-            => node.Attributes!.GetValueOrDefault(DisplayName);
-    }
+    public static string? GetDisplayName(this ModelNode node)
+        => node.Attributes!.GetValueOrDefault(DisplayName);
+
+    private const string PreferredUnit = "PreferredUnit";
+
+    public static void SetPreferredUnit(this ModelNode node, string preferredUnit)
+        => node.Attributes[PreferredUnit] = preferredUnit;
+
+    public static string? GetPreferredUnit(this ModelNode node)
+        => node.Attributes!.GetValueOrDefault(PreferredUnit);
 }
