@@ -1,37 +1,38 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <EnableDefaultItems>false</EnableDefaultItems>
-    <PackageId>KDP.Device.Model</PackageId>
-    <IncludeSymbols>True</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<EnableDefaultItems>false</EnableDefaultItems>
+		<PackageId>KDP.Device.Model</PackageId>
+		<IncludeSymbols>True</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<PackageVersion>0.0.1</PackageVersion>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <Compile Include="**\*.cs" />
-    <Compile Remove="obj\**\*.cs" />
-    <Compile Remove="bin\**\*.cs" />
-  </ItemGroup>
+	<ItemGroup>
+		<Compile Include="**\*.cs" />
+		<Compile Remove="obj\**\*.cs" />
+		<Compile Remove="bin\**\*.cs" />
+	</ItemGroup>
 
-  <ItemGroup Condition="'$(UseIotDeviceBindingsAttributes)' == 'true'">
-    <PackageReference Condition="'$(UseIotDeviceBindingsAttributes)' == 'true'" Include="Iot.Device.Bindings" Version="2.1.0" />
-    
-    <Compile Remove="InterfaceAttribute.cs" />
-    <Compile Remove="ComponentAttribute.cs" />
-    <Compile Remove="PropertyAttribute.cs" />
-    <Compile Remove="TelemetryAttribute.cs" />
-  </ItemGroup>
+	<ItemGroup Condition="'$(UseIotDeviceBindingsAttributes)' == 'true'">
+		<PackageReference Condition="'$(UseIotDeviceBindingsAttributes)' == 'true'" Include="Iot.Device.Bindings" Version="2.1.0" />
 
-  <ItemGroup>
-    <PackageReference Include="UnitsNet" Version="4.145.0" />
-  </ItemGroup>
+		<Compile Remove="InterfaceAttribute.cs" />
+		<Compile Remove="ComponentAttribute.cs" />
+		<Compile Remove="PropertyAttribute.cs" />
+		<Compile Remove="TelemetryAttribute.cs" />
+	</ItemGroup>
 
-  <PropertyGroup Condition="'$(UseIotDeviceBindingsAttributes)' == 'true'">
-    <DefineConstants>$(DefineConstants);USE_IOT_DEVICE_BINDINGS</DefineConstants>
-  </PropertyGroup>
-  
+	<ItemGroup>
+		<PackageReference Include="UnitsNet" Version="4.145.0" />
+	</ItemGroup>
+
+	<PropertyGroup Condition="'$(UseIotDeviceBindingsAttributes)' == 'true'">
+		<DefineConstants>$(DefineConstants);USE_IOT_DEVICE_BINDINGS</DefineConstants>
+	</PropertyGroup>
+
 </Project>
