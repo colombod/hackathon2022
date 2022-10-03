@@ -5,6 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <EnableDefaultItems>false</EnableDefaultItems>
+    <PackageId>KDP.Device.Model</PackageId>
   </PropertyGroup>
 
   <ItemGroup>
