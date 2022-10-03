@@ -6,6 +6,9 @@
     <Nullable>enable</Nullable>
     <EnableDefaultItems>false</EnableDefaultItems>
     <PackageId>KDP.Device.Model</PackageId>
+    <IncludeSymbols>True</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
